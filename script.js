@@ -8,35 +8,28 @@ form.addEventListener("submit", (e)=>{
 function checkInput(){
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
-    if(emailValue=== ""){
-        setError(email, "Email can't be empty.")
-    }
-    else if(!isValidEmail(emailValue)){
-        setError(email, "Enter valid email address.");
-    }
-    else{
-        setSuccess(email, "Email has been set.")
+    if(emailValue === ""){
+        setError(email, "Email can't be empty");
     }
     if(passwordValue === ""){
-        setError(password, "Password can't be empty.");
+        setError(password, "Password can't be empty");
     }
     else if(passwordValue.length < 8){
-        setError(password, "Password should be greater than 8 characters.");
+        setError(password, "Password can't be less than 8 characters.")
     }
     else{
-        setSuccess(password, "Password has be set.");
+        setSuccess(password, "Password has been set.");
     }
 }
 function setError(input, message){
-    const errorShow = input.parentElement;
-    const small = errorShow.querySelector("small");
+    const showError = input.parentElement;
+    const small = showError.querySelector("small");
     small.innerText = message;
+    small.style.display = "block";
 }
 function setSuccess(input, message){
     const showSuccess = input.parentElement;
     const small = showSuccess.querySelector("small");
     small.innerText = message;
-}
-function isValidEmail(email){
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    small.style.display = "block";
 }

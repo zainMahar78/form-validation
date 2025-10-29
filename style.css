@@ -1,0 +1,16 @@
+#loginForm{
+    border: 2px solid black;
+    height: 200px;
+}
+#btn{
+    transform: translateX(190%);
+    margin: 5px;
+}
+.showError {
+
+    /* position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; */
+    padding-left: 70px;
+}
