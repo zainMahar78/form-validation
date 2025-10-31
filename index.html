@@ -11,16 +11,19 @@
 </head>
 
 <body>
-  <form id="loginForm" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="m-2 ps-4 position-relative">
-      <label for="email">Email</label>
-      <input type="text" id="email" placeholder="Enter your email">
-      <small class="showError"></small>
+  <form id="loginForm">
+    <div>
+      <label class="label" for="email">Email</label>
+      <input type="text" id="email" class="formInput" placeholder="Enter your email">
+      <div class="ps-1 mb-3" id="errorShow"><small> We will not share your email with anyone.</small></div>
     </div>
-    <div class="position-relative">
-      <label for="password">Password</label>
-      <input type="text" id="password" placeholder="Enter your Password">
-      <small class="showError"></small>
+    <div>
+      <label class="label" for="password">Password</label>
+      <input type="text" id="password" class="formInput" placeholder="Enter your Password">
+      <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div> -->
     </div>
     <div id="btn"><button type="submit">Login</button></div>
   </form>
