@@ -5,6 +5,16 @@ form.addEventListener("submit", (e)=>{
     e.preventDefault();
     checkInput();
 });
+email.addEventListener("input",()=>{
+    clearMessage(email);
+});
+password.addEventListener("input", ()=>{
+    clearMessage(password);
+});
+function clearMessage(email){
+    const small = email.parentElement.querySelector("small");
+    small.innerText = "";
+}
 function checkInput(){
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
@@ -18,24 +28,19 @@ function checkInput(){
         setSuccess(email, "Email has been registered.")
     }
     if(passwordValue === ""){
-        // setError(password, "Password can't be empty");
+        setError(password, "Password can't be empty");
     }
     else if(!isValidPassword(passwordValue)){
-        // setError(password, "Password can't be less than 8 characters.")
+        setError(password, "Password can't be less than 8 characters.")
     }
     else{
         setSuccess(password, "Password has been set.");
     }
 }
 function setError(input, message){
-    console.log("hey! i am an error.");
-    const errorShow = document.getElementById("errorShow");
-    const div = document.createElement("div");
-    div.classList.add("alert", "alert-warning", "alert-dismissible", "fade", "show", "divToShowAlert");
-    div.role = "alert";
-    
-    div.innerHTML = `${message} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>`;
-    errorShow.appendChild(div);
+    const errorShow = input.parentElement;
+    const small = errorShow.querySelector("small");
+    small.innerText = message;
 }
 function setSuccess(input, message){
     const showSuccess = input.parentElement;
